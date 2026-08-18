@@ -2,30 +2,71 @@ name: Draw ZMK keymap
 
 on:
   workflow_dispatch:
+
   push:
     paths:
       - ".github/workflows/keymap_drawer.yml"
-      - "keymap_img/**"
       - "config/dance.keymap"
+      - "keymap_img/dance_keymap_config.yaml"
+      - "keymap_img/dance_keymap_base.yaml"
 
 jobs:
   draw:
-    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+    runs-on: ubuntu-latest
 
     permissions:
       contents: write
 
-    with:
-      commit_message: "[Draw] ${{ github.event.head_commit.message }}"
-      amend_commit: false
-      install_branch: "main"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      keymap_patterns: "config/dance.keymap"
-      json_path: "keymap_img"
-      config_path: "keymap_img/dance_keymap_config.yaml"
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
 
-      output_folder: "keymap_img"
-      destination: "both"
+      - name: Install keymap_drawer
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install keymap_drawer "tree-sitter>=0.20,<0.21"
 
-      parse_args: ""
-      draw_args: "-k chocofi"
+      - name: Check keymap_drawer
+        run: |
+          python -m pip show keymap_drawer
+          python -m pip show tree-sitter
+
+      - name: Parse ZMK keymap
+        run: |
+          keymap \
+            -c ./keymap_img/dance_keymap_config.yaml \
+            parse \
+            -c 10 \
+            -z ./config/dance.keymap \
+            --base-keymap ./keymap_img/dance_keymap_base.yaml \
+            > ./keymap_img/dance_keymap.yaml
+
+      - name: Draw keymap
+        run: |
+          keymap \
+            -c ./keymap_img/dance_keymap_config.yaml \
+            draw \
+            --select-layers default num nav fun \
+            -k chocofi \
+            ./keymap_img/dance_keymap.yaml \
+            > ./keymap_img/dance_keymap.svg
+
+      - name: Commit generated keymap
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add keymap_img/dance_keymap.yaml
+          git add keymap_img/dance_keymap.svg
+
+          if git diff --cached --quiet; then
+            echo "No keymap changes."
+          else
+            git commit -m "[Draw] Update keymap image"
+            git push
+          fi
