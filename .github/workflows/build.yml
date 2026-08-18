@@ -1,44 +1,10 @@
-on: [push, pull_request, workflow_dispatch]
+name: Build ZMK firmware
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0
-
-  doc:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
-      - name: 'Install keymap_drawer'
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install keymap_drawer "tree-sitter>=0.20,<0.21"
-
-      - name: 'Check keymap_drawer dependencies'
-        run: |
-          python -m pip show keymap_drawer
-          python -m pip show tree-sitter
-          python -m pip list | grep -E 'keymap|tree-sitter'
-
-      - name: 'Parse ZMK keymap'
-        run: |
-          keymap -c ./keymap_img/dance_keymap_config.yaml parse \
-            -c 10 \
-            -z ./config/dance.keymap \
-            --base-keymap ./keymap_img/dance_keymap_base.yaml \
-            > ./keymap_img/dance_keymap.yaml
-
-      - name: 'Draw keymap'
-        run: |
-          keymap -c ./keymap_img/dance_keymap_config.yaml draw \
-            --select-layers default num nav fun \
-            -k chocofi \
-            ./keymap_img/dance_keymap.yaml \
-            > ./keymap_img/dance_keymap.svg
