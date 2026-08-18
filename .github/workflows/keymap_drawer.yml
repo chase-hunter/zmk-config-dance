@@ -51,7 +51,6 @@ jobs:
           keymap \
             -c ./keymap_img/dance_keymap_config.yaml \
             draw \
-            --select-layers default num nav fun \
             -k chocofi \
             ./keymap_img/dance_keymap.yaml \
             > ./keymap_img/dance_keymap.svg
