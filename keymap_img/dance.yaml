@@ -1,0 +1,284 @@
+layout: {zmk_keyboard: dance}
+layers:
+  default:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - A
+  - S
+  - D
+  - F
+  - {t: G, h: '5'}
+  - {t: H, h: '5'}
+  - J
+  - K
+  - L
+  - ENTER
+  - {t: Z, h: fun}
+  - X
+  - C
+  - V
+  - B
+  - N
+  - M
+  - {t: ',', s: <}
+  - {t: ., s: '>'}
+  - {t: /, h: LEFT SHIFT, s: '?'}
+  - {t: CAPSLOCK, h: '6'}
+  - {t: LEFT SHIFT, h: ⌃}
+  - {t: LEFT WIN, h: num}
+  - SPACE
+  - {t: BACKSPACE, h: nav}
+  - {t: DELETE, h: '4'}
+  num:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - {t: '-', s: _}
+  - {t: '=', s: +}
+  - F2
+  - F5
+  - ↹
+  - \
+  - {t: '[', s: '{'}
+  - {t: ']', s: '}'}
+  - {t: ;, s: ':'}
+  - {t: '''', s: '"'}
+  - {t: '`', s: '~'}
+  - 'VOL
+
+    MUTE'
+  - '&key'
+  - VOL DN
+  - VOL UP
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ⇧
+  - ⎇
+  - {type: held}
+  - SPACE
+  - BSPC
+  - DELETE
+  nav:
+  - Sft+1
+  - Sft+2
+  - Sft+3
+  - Sft+4
+  - Sft+5
+  - Sft+6
+  - Sft+7
+  - Sft+8
+  - Sft+9
+  - Sft+0
+  - {t: Sft+-, s: Sft+_}
+  - {t: Sft+=, s: Sft++}
+  - ''
+  - ''
+  - ''
+  - Sft+\
+  - {t: 'Sft+[', s: 'Sft+{'}
+  - {t: 'Sft+]', s: 'Sft+}'}
+  - {t: Sft+;, s: 'Sft+:'}
+  - {t: Sft+', s: Sft+"}
+  - {t: Sft+`, s: Sft+~}
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - ''
+  - {t: 'Sft+,', s: Sft+<}
+  - {t: Sft+., s: Sft+>}
+  - Sft+/
+  - {t: ▽, type: trans}
+  - BSPC
+  - SPACE
+  - SPACE
+  - {type: held}
+  - {t: ▽, type: trans}
+  fun:
+  - LEFT ARROW
+  - RIGHT ARROW
+  - '7'
+  - '8'
+  - '9'
+  - {t: Sft+=, s: Sft++}
+  - {t: '-', s: _}
+  - Sft+8
+  - /
+  - BSPC
+  - ⎇
+  - BSPC
+  - '4'
+  - '5'
+  - '6'
+  - {t: '=', s: +}
+  - Sft+9
+  - Sft+0
+  - ''
+  - ENTER
+  - {type: held}
+  - ENTER
+  - '1'
+  - '2'
+  - '3'
+  - ''
+  - ''
+  - ''
+  - ⎇
+  - ↹
+  - '0'
+  - {t: ., s: '>'}
+  - ↹
+  - SPACE
+  - BSPC
+  - DELETE
+  '4':
+  - ''
+  - ''
+  - ''
+  - '&sys_reset'
+  - OUT TOG
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - {t: BT, h: '4'}
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
+  - ''
+  - ''
+  - BT CLR
+  - ''
+  - ''
+  - F11
+  - F12
+  - PRINTSCREEN
+  - INSERT
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {type: held}
+  '5':
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - UP ARROW
+  - {t: ▽, type: trans}
+  - ↹
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - UP ARROW
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - LEFT ARROW
+  - DOWN ARROW
+  - RIGHT ARROW
+  - {type: held}
+  - {t: ▽, type: trans}
+  - LEFT ARROW
+  - DOWN ARROW
+  - RIGHT ARROW
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ⎇
+  - ⌘
+  - SPACE
+  - BSPC
+  - DEL
+  '6':
+  - '&changekey'
+  - Alt+Ctl+W
+  - Ctl+⇧
+  - Ctl+Y
+  - Gui+↹
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - BSPC
+  - {t: Ctl+A, h: Alt+Ctl+A}
+  - Ctl+S
+  - Gui+D
+  - Ctl+F
+  - Gui+L
+  - {t: ▽, type: trans}
+  - Ctl+J
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ENTER
+  - Ctl+Z
+  - Ctl+X
+  - Ctl+C
+  - Ctl+V
+  - Ctl+B
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - Ctl+P
+  - Ctl+J
+  - SPACE
+  - BSPC
+  - DELETE
+combos:
+- p: [18, 19]
+  k: RET
+- p: [8, 9]
+  k: BACKSPACE
+- p: [10, 11]
+  k: DELETE
+- p: [0, 1]
+  k: ⎋
+- p: [28, 29]
+  k: Sft+↹
+- p: [20, 21]
+  k: CAPSLOCK
+- p: [2, 3]
+  k: HOME
+- p: [12, 13]
+  k: END
+- p: [6, 7]
+  k: PAGE UP
+- p: [16, 17]
+  k: PAGE DOWN
