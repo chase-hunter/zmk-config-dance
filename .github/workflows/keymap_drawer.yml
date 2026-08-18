@@ -1,0 +1,31 @@
+name: Draw ZMK keymap
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/keymap_drawer.yml"
+      - "keymap_img/**"
+      - "config/dance.keymap"
+
+jobs:
+  draw:
+    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+
+    permissions:
+      contents: write
+
+    with:
+      commit_message: "[Draw] ${{ github.event.head_commit.message }}"
+      amend_commit: false
+      install_branch: "main"
+
+      keymap_patterns: "config/dance.keymap"
+      json_path: "keymap_img"
+      config_path: "keymap_img/dance_keymap_config.yaml"
+
+      output_folder: "keymap_img"
+      destination: "both"
+
+      parse_args: ""
+      draw_args: "-k chocofi"
